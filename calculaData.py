@@ -1,9 +1,15 @@
 #!/usr/bin/python
 
+op=str()
 print()
 date = str(input('Entre com a data (dd/MM/yyyy HH24:mi): '))
 print()
-op = str(input('Entre com a operação desejada (+ ou -): '))
+while op!=str("+") and op!=str("-"):
+    op = str(input('Entre com a operação desejada (+ ou -): '))    
+    if op!=str("+") and op!=str("-"):
+        print()
+        print('Erro: Favor digitar um sinal válido (+ ou -)')
+        print()
 print()
 value = int(input('Entre com a quantidade de minutos: '))
 print()
@@ -71,10 +77,10 @@ def change_date(date,op,value):
         elif month==12:
             max_month_days_before=30
             max_month_days=31
+            break
         else:
             print('erro')
-            break
-
+            
         if op==str('+'):
             if day<max_month_days:
                 day+=1
